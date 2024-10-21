@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    // https://stackoverflow.com/questions/71079901/eacces-permission-denied-when-running-npm-install-by-jenkins-and-using-docker
+    // enviroment lades till to fix permissionbug
     environment {
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
