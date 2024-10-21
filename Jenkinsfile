@@ -3,7 +3,12 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent { docker { image 'node:18-alpine' reuseNod true } }
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNod true 
+                }
+            }
             steps {
                 sh '''
                     ls -la
