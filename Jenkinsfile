@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    }
     stages {
         stage('Build') {
             agent {
@@ -14,7 +16,6 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    npm config set cache --global /tmp/.npmcache/.
                     npm ci
                     npm run build
                     ls -la
